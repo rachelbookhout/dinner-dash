@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   has_many :carts, :through :ItemsinCart
   belongs_to :category
 
-  validates :tite, presence:true
+  validates :title, presence:true
   validates :price, presence:true
   validates :description, presence:true
   validates :title, uniqueness:true
