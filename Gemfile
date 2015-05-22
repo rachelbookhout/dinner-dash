@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'dotenv'
 gem 'carrierwave'
+gem 'foundation-rails'
