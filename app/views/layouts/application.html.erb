@@ -4,16 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
 
     <%= stylesheet_link_tag    "application" %>
+
     <%= javascript_include_tag "vendor/modernizr" %>
+
     <%= csrf_meta_tags %>
   </head>
+<body class = "welcome">
+ <nav class = "top-bar">
+  <section class = "title-area">
+  <ul class = "left">
+    <li class = "name"><%= link_to "Puppy Sitter", requests_path%></li>
+  </ul>
+  </section>
+  <section class = "top-bar-section">
+  <ul class = "right">
+    <% if current_user%>
+      <li>
+      <a href="#"></a>
+      <ul class = "profile-dropdown">
+        <li></li>
+        <li> </li>
+        <li></li>
+        <li></li>
+      </ul>
+      </li>
+      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+    <%else%>
+        <li><%= link_to "Sign in", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path%></li>
+    <%end%>
+   </ul>
+   </nav>
+   <p class="notice" id = "message"><%= notice %></p>
+   <p class="alert" id = "message"><%= alert %></p>
+<%= yield %>
 
-  <body>
-
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
-  </body>
+  <%= javascript_include_tag "application" %>
+</body>
 </html>
